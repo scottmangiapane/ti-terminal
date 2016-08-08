@@ -24,6 +24,10 @@ This program is built for the Texas Instruments 83+/84 graphing calculator (blac
 <li>Run the program from the [APPS] menu</li>
 </ul>
 
+## How To Use
+
+Type a command using the keys, then submit the command by pressing [ENTER]. Press [2ND] to type numbers and press [ALPHA] to type letters.
+
 ## Command List
 
 <ul>
