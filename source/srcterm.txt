@@ -1,0 +1,924 @@
+.Terminal
+...
+[Y1] appv
+ 0 auto lock
+ 1 invert
+ 2 history
+ 3 auto case
+[Y2] prgm
+[r1] shell mode
+[r2] prgm active
+[r3] prgm VAT
+[r4] case/num
+[r5] admin code
+L1 type mode
+L2 prgm name
+...
+Goto S1
+prgmARCLIB
+Lbl S1
+Normal
+FnOff 
+DiagnosticOff
+Fix 5
+!If GetCalc("appv tData",[Y1]
+	GetCalc("appv tData",42)->A
+	Fill(A,42,0
+	Archive "appv tData
+	GetCalc("appv tData",[Y1]
+End
+0->[r1]->[r2]->[r3]->[r4]->[r5]
+[70D8F8D8D8000000]->Pic1
+[2070F82020000000]->Pic2
+If {[Y1]+3}=0
+	Asm(FDCB24DE)
+End
+ClrDraw
+If {[Y1]}
+	Text(1,51,"Terminal 4.4.2
+	Text(1,57,"[SECURITY ENABLED]
+	Else
+	Text(1,57,"Terminal 4.4.2
+End
+Lbl T1
+sub(E1)
+If [r1]=0
+	Text(1,57,">>
+	Else
+	Text(1,57,"<<
+End
+If {[Y1]+1}=1
+	DrawInv
+End
+DispGraph
+If {[Y1]+1}=1
+	DrawInv
+End
+10->A
+GetCalc("appv tType",40)->B
+Fill(B,40,0
+If [r1]=0
+	0->C
+	Else
+	|E05->{B}
+	1->C
+End
+Lbl T2
+0->D
+Repeat (getKey) or (D=2)
+	D+1->D
+End
+0->D
+RectI(A,62,3,1
+If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+Repeat getKey(41)=0
+End
+Repeat 0
+	D++
+	If D=1200
+		0->D
+		RectI(A,62,3,1
+If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+	End
+	If (getKey(41)) or (getKey)
+		Rect(A,62,3,1
+		RectI(A,62,3,1
+		Goto T2p1
+	End
+End
+Lbl T2p1
+If ({[Y1]+2}=1) and (A=10)
+	ClrDraw
+	If [r1]=0
+		Text(1,57,">>
+		Else
+		Text(1,57,"<<
+	End
+End
+If getKey(55)
+	If A<=88
+		Text(A,57,"E
+		69->{B+C}:A+4->A:C+1->C
+If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+		Pause 100
+	End
+	If A<=88
+		Text(A,57,"X
+		88->{B+C}:A+4->A:C+1->C
+If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+		Pause 100
+	End
+	If A<=88
+		Text(A,57,"I
+		73->{B+C}:A+4->A:C+1->C
+If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+		Pause 100
+	End
+	If A<=88
+		Text(A,57,"T
+		84->{B+C}:A+4->A:C+1->C
+If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+	End
+	Goto T2
+End
+If getKey(15)
+	If A<=88
+		Text(A,57,"C
+		67->{B+C}:A+4->A:C+1->C
+If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+		Pause 100
+	End
+	If A<=88
+		Text(A,57,"L
+		76->{B+C}:A+4->A:C+1->C
+If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+		Pause 100
+	End
+	If A<=88
+		Text(A,57,"E
+		69->{B+C}:A+4->A:C+1->C
+If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+		Pause 100
+	End
+	If A<=88
+		Text(A,57,"A
+		65->{B+C}:A+4->A:C+1->C
+If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+		Pause 100
+	End
+	If A<=88
+		Text(A,57,"R
+		82->{B+C}:A+4->A:C+1->C
+If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+	End
+	Goto T2
+End
+Lbl T2p2
+If getKey(41)
+	If ([r1]=1)
+		0->[r1]
+		Rect(10,57,96,6
+		RectI(10,57,96,6
+		Text(10,57,"[ABORTED]
+		Goto T1
+		Else
+		If A<=88
+			Text(A,57,"O
+			79->{B+C}:A+4->A:C+1->C
+	If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+			Pause 100
+		End
+		If A<=88
+			Text(A,57,"F
+			70->{B+C}:A+4->A:C+1->C
+	If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+			Pause 100
+		End
+		If A<=88
+			Text(A,57,"F
+			70->{B+C}:A+4->A:C+1->C
+	If {[Y1]+1}=1:DrawInv:End:DispGraph:If {[Y1]+1}=1:DrawInv:End
+		End
+		Goto T2
+	End
+End
+If getKey(48)
+	0->[r4]
+	StorePic
+	Pt-On(90,1,Pic1
+	If {[Y1]+1}=1
+		DrawInv
+	End
+	DispGraph
+	Pause 300
+	RecallPic
+End
+If getKey(54)
+	1->[r4]
+	StorePic
+	Pt-On(90,1,Pic2
+	If {[Y1]+1}=1
+		DrawInv
+	End
+	DispGraph
+	Pause 300
+	RecallPic
+End
+If A<=88
+	If getKey(33)
+		If [r4]=0
+			Text(A,59,"-
+			62->{B+C}:A+4->A:C+1->C
+			Else
+			Text(A,57,"0
+			48->{B+C}:A+4->A:C+1->C
+		End
+	End
+	If ([r4]=0) and (getKey(47)
+		Text(A,57,"A
+		65->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(46)
+		Text(A,57,"D
+		68->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(45)
+		Text(A,57,"I
+		73->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(44)
+		Text(A,57,"N
+		78->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(43)
+		Text(A,57,"S
+		83->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(42)
+		Text(A,57,"X
+		88->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(39)
+		Text(A,57,"B
+		66->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(38)
+		Text(A,57,"E
+		69->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(37)
+		Text(A,57,"J
+		74->{B+C}:A+4->A:C+1->C
+	End
+	If getKey(36)
+		If [r4]=0
+			Text(A,57,"O
+			79->{B+C}:A+4->A:C+1->C
+			Else
+			Text(A,57,"7
+			55->{B+C}:A+4->A:C+1->C
+		End
+	End
+	If getKey(35)
+		If [r4]=0
+			Text(A,57,"T
+			84->{B+C}:A+4->A:C+1->C
+			Else
+			Text(A,57,"4
+			52->{B+C}:A+4->A:C+1->C
+		End
+	End
+	If getKey(34)
+		If [r4]=0
+			Text(A,57,"Y
+			89->{B+C}:A+4->A:C+1->C
+			Else
+			Text(A,57,"1
+			49->{B+C}:A+4->A:C+1->C
+		End
+	End
+	If ([r4]=0) and (getKey(31)
+		Text(A,57,"C
+		67->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(30)
+		Text(A,57,"F
+		70->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(29)
+		Text(A,57,"K
+		75->{B+C}:A+4->A:C+1->C
+	End
+	If getKey(28)
+		If [r4]=0
+			Text(A,57,"P
+			80->{B+C}:A+4->A:C+1->C
+			Else
+			Text(A,57,"8
+			56->{B+C}:A+4->A:C+1->C
+		End
+	End
+	If getKey(27)
+		If [r4]=0
+			Text(A,57,"U
+			85->{B+C}:A+4->A:C+1->C
+			Else
+			Text(A,57,"5
+			53->{B+C}:A+4->A:C+1->C
+		End
+	End
+	If getKey(26)
+		If [r4]=0
+			Text(A,57,"Z
+			90->{B+C}:A+4->A:C+1->C
+			Else
+			Text(A,57,"2
+			50->{B+C}:A+4->A:C+1->C
+		End
+	End
+	If ([r4]=0) and (getKey(22)
+		Text(A,57,"G
+		71->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(21)
+		Text(A,57,"L
+		76->{B+C}:A+4->A:C+1->C
+	End
+	If getKey(20)
+		If [r4]=0
+			Text(A,57,"Q
+			81->{B+C}:A+4->A:C+1->C
+			Else
+			Text(A,57,"9
+			57->{B+C}:A+4->A:C+1->C
+		End
+	End
+	If getKey(19)
+		If [r4]=0
+			Text(A,57,"V
+			86->{B+C}:A+4->A:C+1->C
+			Else
+			Text(A,57,"6
+			54->{B+C}:A+4->A:C+1->C
+		End
+	End
+	If getKey(18)
+		If [r4]=0
+			Text(A,57,"theta
+			91->{B+C}:A+4->A:C+1->C
+			Else
+			Text(A,57,"3
+			51->{B+C}:A+4->A:C+1->C
+		End
+	End
+	If ([r4]=0) and (getKey(14)
+		Text(A,57,"H
+		72->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(13)
+		Text(A,57,"M
+		77->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(12)
+		Text(A,57,"R
+		82->{B+C}:A+4->A:C+1->C
+	End
+	If ([r4]=0) and (getKey(11)
+		Text(A,57,"W
+		87->{B+C}:A+4->A:C+1->C
+	End
+End
+If {[Y1]+1}=1
+	DrawInv
+End
+DispGraph
+If {[Y1]+1}=1
+	DrawInv
+End
+If (getKey(56)) and (A!=10)
+	A-4->A
+	Text(A,58,"     
+	C-1->C
+	0->{B+C}
+	If {[Y1]+1}=1
+		DrawInv
+	End
+	DispGraph
+	If {[Y1]+1}=1
+		DrawInv
+	End
+End
+If getKey(9)
+	0->[r4]
+	Copy(B,L1,{B-2}^^r
+	Goto E2
+End
+Goto T2
+Lbl E1
+Vertical-
+Vertical-
+Vertical-
+Vertical-
+Vertical-
+Vertical-
+Rect(0,57,96,6
+RectI(0,57,96,6
+Return
+Lbl E2
+If [r2]=1
+	!If Equ>String(L1,"RUN
+		GetCalc(L2,[Y2]
+		sub(E1)
+		Text(1,57,"[INITIALIZING EXECUTION]
+		If {[Y1]+1}=1
+			DrawInv
+		End
+		DispGraph
+		If {[Y1]+1}=1
+			DrawInv
+		End
+		Pause 1000
+		If {[Y2]}!=187
+			sub(E1)
+			Text(1,57,"[ERROR INVALID TYPE]
+			Goto T1
+		End
+		If {[Y2]-2}^^r>=8100
+			sub(E1)
+			Text(1,57,"[ERROR TOO LARGE]
+			Goto T1
+		End
+		ClrDraw
+		ClrHome
+		!If GetCalc(L2)
+			GetCalc("appv tRun",{[Y2]-2}^^r)->A
+			Copy([Y2],A,{[Y2]-2}^^r
+			"appv tRun"Asm(E7EF7C4E)
+			DelVar "appv tRun
+			Else
+			L2Asm(E7EF7C4E)
+		End
+		Goto S1
+	End
+	!If Equ>String(L1,"DELETE
+		UnArchive L2
+		DelVar L2
+		0->[r1]
+		0->[r2]
+		sub(E1)
+		Text(1,57,"[PRGM DELETED]
+		sub(E1)
+		Text(1,57,"[PRGM INACTIVE]
+		Goto T1
+	End
+	!If Equ>String(L1,"LOCK
+		0->A
+		!If GetCalc(L2
+			1->A
+		End
+		UnArchive L2
+		6->{[r3]}
+		If A=1
+			Full
+			Archive L2
+			Normal
+		End
+		sub(E1)
+		Text(1,57,"[LOCK COMPLETE]
+		Goto T1
+	End
+	!If Equ>String(L1,"UNLOCK
+		0->A
+		!If GetCalc(L2
+			1->A
+		End
+		UnArchive L2
+		5->{[r3]}
+		If A=1
+			Full
+			Archive L2
+			Normal
+		End
+		sub(E1)
+		Text(1,57,"[UNLOCK COMPLETE]
+		Goto T1
+	End
+	!If Equ>String(L1,"HIDE
+		!If ({[r3]-7}>=65) and ({[r3]-7}<=91)
+			sub(E1)
+			Text(1,57,"[HIDE COMPLETE]
+			Goto T1
+		End
+		0->A
+		!If GetCalc(L2
+			1->A
+		End
+		UnArchive L2
+		DelVar "Str0"
+		GetCalc("Str0",(length(L2)-1))->B
+		Copy(L2+1,B,(length(L2)-1)
+		Asm(21788436042336AA233609233600EFF142D8EB23117884010900EDB02178843605EFF142D811F9FF197ED64077)
+		({L2+1}-64)->{L2+1}
+		DelVar "Str0"
+		If A=1
+			Full
+			Archive L2
+			Normal
+		End
+		sub(E1)
+		Text(1,57,"[HIDE COMPLETE]
+		Goto T1
+	End
+	!If Equ>String(L1,"UNHIDE
+		!If ({[r3]-7}>=1) and ({[r3]-7}<=27)
+			sub(E1)
+			Text(1,57,"[UNHIDE COMPLETE]
+			Goto T1
+		End
+		0->A
+		!If GetCalc(L2
+			1->A
+		End
+		UnArchive L2
+		DelVar "Str0"
+		GetCalc("Str0",(length(L2)-1))->B
+		Copy(L2+1,B,(length(L2)-1)
+		{B}+64->{B}
+		Asm(21788436042336AA233609233600EFF142D8EB23117884010900EDB02178843605237ED64077EFF142D811F9FF197EC64077)
+		({L2+1}+64)->{L2+1}
+		DelVar "Str0"
+		If A=1
+			Full
+			Archive L2
+			Normal
+		End
+		sub(E1)
+		Text(1,57,"[UNHIDE COMPLETE]
+		Goto T1
+	End
+	!If Equ>String(L1,"ARCHIVE
+		Full
+		Archive L2
+		Normal
+		sub(E1)
+		Text(1,57,"[ARCHIVE COMPLETE]
+		Goto T1
+	End
+	!If Equ>String(L1,"UNARCHIVE
+		UnArchive L2
+		sub(E1)
+		Text(1,57,"[UNARCHIVE COMPLETE]
+		Goto T1
+	End
+End
+Lbl E3
+If [r1]=0
+	!If Equ>String(L1,"AUTO>LOCK
+		If [r5]=1
+			UnArchive "appv tData
+			GetCalc("appv tData")->A
+			sub(E1)
+			If {A}=0
+				1->{A}
+				Text(1,57,"[AUTO LOCK ON]
+				Else
+				0->{A}
+				Text(1,57,"[AUTO LOCK OFF]
+			End
+			Archive "appv tData
+			GetCalc("appv tData",[Y1]
+			Goto T1
+			Else
+			sub(E1)
+			Text(1,57,"[ACCESS DENIED]
+			Goto T1
+		End
+	End
+	!If Equ>String(L1,"ADMIN>2416
+		1->[r5]
+		Text(1,57,"[ADMIN ACTIVE]
+		Goto T1
+	End
+	!If Equ>String(L1,"ADMIN>OFF
+		If [r5]=1
+			0->[r5]
+			Text(1,57,"[ADMIN INACTIVE]
+			Else
+			sub(E1)
+			Text(1,57,"[ACCESS DENIED]
+		End
+		Goto T1
+	End
+	!If Equ>String(L1,"OFF
+		0->[r5]
+		Rect(0,57,96,6
+		RectI(0,57,96,6
+		10->A
+		Text(1,57,">>
+		GetCalc("appv tType",40)->B
+		Fill(B,40,0
+		0->C
+		If {[Y1]+1}=1
+			DrawInv
+		End
+		DispGraph
+		If {[Y1]+1}=1
+			DrawInv
+		End
+		Asm(3E01D303FB76)
+		Goto T2
+	End
+	If A=10
+		Goto T2
+	End
+	If ([r5]=0) and ({[Y1]}=1)
+		sub(E1)
+		Text(1,57,"[ACCESS DENIED]
+		Goto T1
+	End
+	Lbl E4
+	!If Equ>String(L1,"CLEAR
+		ClrDraw
+		If {[Y1]}
+			Text(1,51,"Terminal 4.4.2
+			Text(1,57,"[SECURITY ENABLED]
+			Else
+			Text(1,57,"Terminal 4.4.2
+		End
+		Goto T1
+	End
+	!If Equ>String(L1,"EXIT
+		Goto S2
+	End
+	!If Equ>String(L1,"RAM
+		sub(E1)
+		Text(1,57,"[FREE RAM: ",Asm(EFE542)>Dec,"]"
+		Goto T1
+	End
+	!If Equ>String(L1,"F>ARCH
+		sub(E1)
+		Text(1,57,"[FREE ARCHIVE: ",sub(FreeArc),"]"
+		Goto T1
+	End
+	!If Equ>String(L1,"T>ARCH
+		sub(E1)
+		Text(1,57,"[TOTAL ARCHIVE: ",sub(TotalArc),"]"
+		Goto T1
+	End
+	!If Equ>String(L1,"L>APPV
+		If [r5]=1
+			Text(1,57,"[APPV LIST FULL MODE]
+		End
+		{|E9830}^^r->A
+		1->C->D
+		Repeat A<{|E982E}^^r
+			If ({A}=21) and (({A-7}!=32) or ([r5]=1))
+				If D=1
+					1->C
+					2->D
+					Else
+					49->C
+					1->D
+				End
+				If C=1
+					sub(E1)
+				End
+				For(B,1,{A-6}
+					Text(C,57,{A-7-B+1}>Char,"   
+					If ((({A-7-B+1}>=27) and ({A-7-B+1}<=47) and ({A-7-B+1}!=32)) or (({A-7-B+1}>=58) and ({A-7-B+1}<=64)) or (({A-7-B+1}>=92) and ({A-7-B+1}<=96)) or (({A-7-B+1}>=1) and ({A-7-B+1}<=26)) or ({A-7-B+1}>=123) or ({A-7-B+1}=0)
+						Text(C,57,"?          
+					End
+					If {A-7-B+1}=32
+						Text(C,59,"-
+					End
+					If {[Y1]+1}=1
+						DrawInv
+					End
+					DispGraph
+					Pause 100
+					If {[Y1]+1}=1
+						DrawInv
+					End
+					C+5->C
+				End
+			End
+			A-{A-6}-7->A
+		End
+		If {[Y1]+1}=1
+			DrawInv
+		End
+		DispGraph
+		If {[Y1]+1}=1
+			DrawInv
+		End
+		Goto T1
+	End
+	!If Equ>String(L1,"L>PRGM
+		{|E9830}^^r->A
+		1->C->D
+		Repeat A<{|E982E}^^r
+			If (({A}=5) or ({A}=6)) and ((({A-7}>=1) and ({A-7}<=26)) or (({A-7}>=65) and ({A-7}<=91)) or (({A-7}>=48) and ({A-7}<=57)) or (({A-7}>=97) and ({A-7}<=122)) or ({A-7}=32))
+				If D=1
+					1->C
+					2->D
+					Else
+					49->C
+					1->D
+				End
+				If C=1
+					sub(E1)
+				End
+				For(B,1,{A-6}
+					Text(C,57,{A-7-B+1}>Char,"   
+					If ((({A-7-B+1}>=27) and ({A-7-B+1}<=47) and ({A-7-B+1}!=32)) or (({A-7-B+1}>=58) and ({A-7-B+1}<=64)) or (({A-7-B+1}>=92) and ({A-7-B+1}<=96)) or ({A-7-B+1}>=123)
+						Text(C,57,"?   
+					End
+					If ({A-7-B+1}>=1) and ({A-7-B+1}<=26)
+						Text(C,57,{A-7}+64>Char,"   
+					End
+					If {A-7-B+1}=32
+						Text(C,59,"-
+					End
+					If {[Y1]+1}=1
+						DrawInv
+					End
+					DispGraph
+					Pause 100
+					If {[Y1]+1}=1
+						DrawInv
+					End
+					C+5->C
+				End
+			End
+			A-{A-6}-7->A
+		End
+		If {[Y1]+1}=1
+			DrawInv
+		End
+		DispGraph
+		If {[Y1]+1}=1
+			DrawInv
+		End
+		Goto T1
+	End
+	!If Equ>String(L1,"SHELL
+		sub(E1)
+		Text(1,57,"[SHELL MODE ACTIVE]
+		1->[r1]
+		Goto T1
+	End
+	!If Equ>String(L1,"KROLYPTO
+		UnArchive "prgm calcdb2
+		DelVar "prgm calcdb2
+		sub(E1)
+		Text(1,57,"[RESET COMPLETE]
+		Goto T1
+	End
+	!If Equ>String(L1,"HISTORY>ON
+		If {[Y1]+2}=1
+			UnArchive "appv tData
+			GetCalc("appv tData")->A
+			0->{A+2}
+			Full
+			Archive "appv tData
+			Normal
+			GetCalc("appv tData",[Y1]
+		End
+		sub(E1)
+		Text(1,57,"[SET HISTORY ON]
+		Goto T1
+	End
+	!If Equ>String(L1,"HISTORY>OFF
+		If {[Y1]+2}=0
+			UnArchive "appv tData
+			GetCalc("appv tData")->A
+			1->{A+2}
+			Full
+			Archive "appv tData
+			Normal
+			GetCalc("appv tData",[Y1]
+		End
+		sub(E1)
+		Text(1,57,"[SET HISTORY OFF]
+		Goto T1
+	End
+	!If Equ>String(L1,"INFO
+		sub(E1)
+		sub(E1)
+		sub(E1)
+		sub(E1)
+		sub(E1)
+		Text(1,33,"[TERMINAL 4.4.2]
+		Text(1,39,"[BY ClrDraw]
+		Text(1,45,"[THANK YOU TO Runner112]"
+		Text(1,51,"[COMPILED W/ AXE PARSER]
+		Text(1,57,"[(C) 10.31.2013]
+		Goto T1
+	End
+	!If Equ>String(L1,"KILL
+		If [r5]=1
+			Repeat 1=2
+				Full
+				ClrDraw
+				ClrDraw^^r
+				Output(0,6,"ERROR:
+				Output(0,7,"SYSTEM CORRUPT
+				Archive "prgm!
+				Normal
+			End
+			Else
+			sub(E1)
+			Text(1,57,"[ACCESS DENIED]
+			Goto T1
+		End
+	End
+	!If Equ>String(L1,"AUTO>CASE>ON
+		Asm(FDCB24DE)
+		UnArchive "appv tData
+		GetCalc("appv tData")->A
+		0->{A+3}
+		Full
+		Archive "appv tData
+		Normal
+		GetCalc("appv tData",[Y1]
+		sub(E1)
+		Text(1,57,"[SET AUTO CASE ON]
+		Goto T1
+	End
+	!If Equ>String(L1,"AUTO>CASE>OFF
+		Asm(FDCB249E)
+		UnArchive "appv tData
+		GetCalc("appv tData")->A
+		1->{A+3}
+		Full
+		Archive "appv tData
+		Normal
+		GetCalc("appv tData",[Y1]
+		sub(E1)
+		Text(1,57,"[SET AUTO CASE OFF]
+		Goto T1
+	End
+	!If Equ>String(L1,"CASE>ON
+		Asm(FDCB24DE)
+		sub(E1)
+		Text(1,57,"[SET CASE ON]
+		Goto T1
+	End
+	!If Equ>String(L1,"CASE>OFF
+		Asm(FDCB249E)
+		sub(E1)
+		Text(1,57,"[SET CASE OFF]
+		Goto T1
+	End
+	!If Equ>String(L1,"BATTERY
+		Asm(EF6F4C3D280A78FE1EEF21521808EFB3503E042001AFEF8C47EFBF4A)
+		Ans->A
+		sub(E1)
+		Text(1,57,"[BATTERY STATUS: ",A>Dec,"/  4]
+		Goto T1
+	End
+	!If Equ>String(L1,"INVERT
+		UnArchive "appv tData
+		GetCalc("appv tData")->A
+		sub(E1)
+		Text(1,57,"[INVERT SET]
+		If {[Y1]+1}=0
+			1->{A+1}
+			Else
+			0->{A+1}
+		End
+		Full
+		Archive "appv tData
+		Normal
+		GetCalc("appv tData",[Y1]
+		Goto T1
+	End
+	If A!=10
+		sub(E1)
+		Text(1,57,"[ERROR INVALID]
+		Goto T1
+		Else
+		Goto T2
+	End
+	Else
+	Copy(L1,L2,12
+	!If GetCalc(L2,[Y2]
+		({L2+1}-64)->{L2+1}
+		!If GetCalc(L2,[Y2]
+			sub(E1)
+			Text(1,57,"[PRGM NOT FOUND]
+			0->[r1]
+			Goto T1
+		End
+		Goto E4p1
+		Else
+		Lbl E4p1
+		sub(E1)
+		Text(1,57,"[PRGM ACTIVE]
+		0->[r1]
+		1->[r2]
+		{|E9830}^^r->[r3]
+		Repeat getKey(15)
+			Fill(L1,20,0
+			|E05->{L1}
+			1->B
+			If ({[r3]}=5) or ({[r3]}=6)
+				For(A,1,{[r3]-6}
+					{[r3]-7-A+1}->{L1+B}
+					B+1->B
+				End
+				!If Equ>String(L1,L2
+					Goto T1
+				End
+			End
+			[r3]-{[r3]-6}-7->[r3]
+		End
+	End
+End
+Lbl S2
+DelVar "appv tType
+DelVar "appv tRun
+ClrDraw
+ClrDraw^^r
+ClrHome
+Return^^r
