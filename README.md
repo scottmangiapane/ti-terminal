@@ -76,7 +76,7 @@ This program is built for the Texas Instruments 83+/84 graphing calculator (blac
 <ul>
 <li>"SUDO" enables root access, giving the user access to all root commands</li>
 <li>"AUTO-LOCK-ON" (root only) Makes root access required to run any commands</li>
-<li>"AUTO-LOCK-ON" (root only) Disables auto lock</li>
+<li>"AUTO-LOCK-OFF" (root only) Disables auto lock</li>
 <li>"KILL" (root only) freezes the calculator by corrupting the archive<br>WARNING! This command is very dangerous. It will corrupt the device's archive, which is difficult to fix without resetting the device (full reset, not a RAM clear).</li>
 <li>"EXIT" returns to the standard terminal</li>
 </ul>
