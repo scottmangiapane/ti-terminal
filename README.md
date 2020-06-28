@@ -80,3 +80,7 @@ This program is built for the Texas Instruments 83+/84 graphing calculator (blac
 <li>"KILL" (root only) freezes the calculator by corrupting the archive<br>WARNING! This command is very dangerous. It will corrupt the device's archive, which is difficult to fix without resetting the device (full reset, not a RAM clear).</li>
 <li>"EXIT" returns to the standard terminal</li>
 </ul>
+
+## Special Thanks
+
+Special thanks to [Brian Coventry](https://github.com/bcov77) for his work on [zStart](https://www.omnimaga.org/ti-z80-calculator-projects/zstart-an-app-that-runs-on-ram-clears/msg361451/#msg361451) and zstAxe, without which this wouldn't be possible.
